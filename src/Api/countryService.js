@@ -23,11 +23,3 @@ export const getCountryByCode = async (code) => {
 
   return response.json();
 };
-
-export const getCountryByCode = async (code) => {
-  const response = await fetch(
-    `https://restcountries.com/v3.1/alpha/${code}`
-  );
-
-  return response.json();
-};
