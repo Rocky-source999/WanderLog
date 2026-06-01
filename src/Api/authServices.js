@@ -12,13 +12,10 @@ export const loginUser = async (email, password) => {
       password,
     }),
   });
-
   const data = await response.json();
-
   if (!response.ok) {
     throw new Error(data.error);
   }
-
   return data;
 };
 
@@ -34,12 +31,10 @@ export const registerUser = async (email, password) => {
       password,
     }),
   });
-
   const data = await response.json();
-
+  console.log(data)
   if (!response.ok) {
     throw new Error(data.error);
   }
-
   return data;
 };

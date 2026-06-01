@@ -6,8 +6,7 @@ function CountryGrid({ countries }) {
       {countries.map((country) => (
         <CountryCard
           key={country.cca3}
-          country={country}
-        />
+          country={country}/>
       ))}
     </div>
   );

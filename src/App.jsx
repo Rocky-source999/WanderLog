@@ -11,30 +11,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={
-            showLogin ? (
-              <LoginForm
-                onSwitch={() => setShowLogin(false)}
-              />
-            ) : (
-              <SignForm
-                onSwitch={() => setShowLogin(true)}
-              />
-            )
-          }
-        />
-
-        <Route
-          path="/explore"
-          element={<Explore />}
-        />
-
-        <Route
-          path="/country/:code"
-          element={<CountryDetails />}
-        />
+        <Route path="/" element={showLogin ? (<LoginForm onSwitch={() => setShowLogin(false)}/>) 
+        : 
+        (<SignForm onSwitch={() => setShowLogin(true)}/>)}/>
+        <Route path="/explore" element={<Explore />}/>
+        <Route path="/country/:code" element={<CountryDetails />}/>
       </Routes>
     </BrowserRouter>
   );
