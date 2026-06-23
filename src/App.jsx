@@ -3,7 +3,7 @@ import { useState } from "react";
 import LoginForm from "./Components/Auth/LoginForm"
 import SignForm from "./Components/Auth/SignForm"
 import Explore from "./Pages/Explore"
-import CountryDetails from "./Pages/CountyDetails"
+import CountryDetails from "./Pages/CountryDetails"
 
 function App() {
   const [showLogin, setShowLogin] = useState(true);
