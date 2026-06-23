@@ -64,6 +64,7 @@ const naviate=useNavigate();
                 type="password"
                 className="w-full p-3 outline-none"
                 value={password}
+                placeholder="123"
                 onChange={(e) => setPassword(e.target.value)}/>
             </div>
           </div>
