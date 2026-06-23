@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllCountries } from "../api/countryService";
+import { getAllCountries } from "../Api/countryService";
 import { Link } from "react-router-dom";
 
 function Explore() {

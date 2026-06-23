@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getCountryByCode } from "../api/countryService";
+import { getCountryByCode } from "../Api/countryService";
 
 function CountryDetails() {
   const { code } = useParams();
