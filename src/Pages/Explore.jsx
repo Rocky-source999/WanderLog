@@ -19,7 +19,7 @@ function Explore() {
     }
     if (search) {
       data = data.filter((country) =>
-        country.name.common.toLowerCase().includes(search.toLowerCase()),
+        country.name.toLowerCase().includes(search.toLowerCase()),
       );
     }
     setFilteredCountries(data);
@@ -63,19 +63,19 @@ function Explore() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
           {filteredCountries.map((country) => (
-            <Link key={country.cca3} to={`/country/${country.cca3}`}>
+            <Link key={country.id} to={`/country/${country.code}`}>
               <div className="bg-white border rounded-xl p-3 hover:shadow-lg transition">
                 <img
-                  src={country.flags.svg}
+                  src={country.flag}
                   alt=""
                   className="w-full h-28 object-cover rounded-lg"/>
                 <h3 className="font-bold text-lg mt-3">
-                  {country.name.common}
+                  {country.name}
                 </h3>
                 <div className="space-y-1 mt-2 text-sm text-gray-500">
                   <p>
                     <i className="fa-solid fa-location-dot mr-2"></i>
-                    {country.capital?.[0]}
+                    {country.capital}
                   </p>
                   <p>
                     <i className="fa-solid fa-users mr-2"></i>

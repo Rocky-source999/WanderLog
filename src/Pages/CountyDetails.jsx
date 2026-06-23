@@ -29,7 +29,7 @@ function CountryDetails() {
 
   const addToWishlist = () => {
     const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-    const exists = wishlist.find((item) => item.cca3 === country.cca3);
+    const exists = wishlist.find((item) => item.code === country.code);
     if (!exists) {
       wishlist.push(country);
       localStorage.setItem("wishlist",JSON.stringify(wishlist));
@@ -41,7 +41,7 @@ function CountryDetails() {
 
   const markVisited = () => {
     const visited = JSON.parse(localStorage.getItem("visited")) || [];
-    const exists = visited.find((item) => item.cca3 === country.cca3);
+    const exists = visited.find((item) => item.code === country.code);
     if (!exists) {
       visited.push(country);
       localStorage.setItem("visited",JSON.stringify(visited));
@@ -81,15 +81,15 @@ function CountryDetails() {
           Back
         </button>
         <img
-          src={country.flags?.svg}
-          alt={country.name?.common}
+          src={country.flag}
+          alt={country.name}
           className="w-full h-64 object-cover rounded-xl"/>
         <h1 className="text-5xl font-bold text-slate-800 mt-5">
-          {country.name?.common}
+          {country.name}
         </h1>
         <p className="text-teal-700 mt-2 flex items-center gap-2 text-lg">
           <i className="fa-solid fa-location-dot"></i>
-          {country.capital?.[0] || "N/A"}
+          {country.capital || "N/A"}
         </p>
         <div className="grid grid-cols-2 md:grid-cols-3 mt-6 border rounded-xl overflow-hidden">
           <div className="border p-5 text-center">
@@ -98,7 +98,7 @@ function CountryDetails() {
               Capital
             </p>
             <p className="font-semibold mt-1">
-              {country.capital?.[0] || "N/A"}
+              {country.capital || "N/A"}
             </p>
           </div>
           <div className="border p-5 text-center">
@@ -117,7 +117,7 @@ function CountryDetails() {
               Languages
             </p>
             <p className="font-semibold mt-1">
-              {country.languages? Object.values(country.languages).join(", "): "N/A"}
+              {country.languages? country.languages.map((lang)=>lang.name).join(", "): "N/A"}
             </p>
           </div>
           <div className="border p-5 text-center">
@@ -126,7 +126,7 @@ function CountryDetails() {
               Currency
             </p>
             <p className="font-semibold mt-1">
-              {country.currencies? Object.values(country.currencies)[0]?.name: "N/A"}
+              {country.currencies? country.currencies[0]?.name: "N/A"}
             </p>
           </div>
           <div className="border p-5 text-center">

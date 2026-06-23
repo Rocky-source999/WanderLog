@@ -8,7 +8,8 @@ function Login({onSwitch}) {
   const [token, setToken] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-const naviate=useNavigate();
+  const naviate=useNavigate();
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -16,7 +17,7 @@ const naviate=useNavigate();
       const data = await loginUser(email, password);
       setToken(data.token);
       localStorage.setItem("token", data.token);
-      naviate("/explore")
+      naviate("/explore",{replace:true})
     } catch (err) {
       setError(err.message);
     }

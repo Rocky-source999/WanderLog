@@ -3,11 +3,11 @@ function CountryInfo({ country }) {
   return (
     <div className="bg-white rounded-xl p-5 shadow">
       <img
-        src={country.flags.svg}
-        alt={country.name.common}
+        src={country.flag}
+        alt={country.name}
         className="w-full h-64 object-cover rounded-xl"/>
       <h1 className="text-4xl font-bold mt-5">
-        {country.name.common}
+        {country.name}
       </h1>
       <p className="text-gray-500 mt-2">
         {country.capital?.[0]}
@@ -24,15 +24,14 @@ function CountryInfo({ country }) {
         <div>
           <h4 className="font-semibold">Currencies</h4>
           <p>
-            {country.currencies &&
-              Object.values(country.currencies)[0]?.name}
+            {country.currencies && country.currencies[0]?.name}
           </p>
         </div>
         <div>
           <h4 className="font-semibold">Languages</h4>
           <p>
             {country.languages &&
-              Object.values(country.languages).join(", ")}
+              country.languages.map((lang) => lang.name).join(", ")}
           </p>
         </div>
       </div>
